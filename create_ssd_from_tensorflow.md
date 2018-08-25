@@ -1,3 +1,7 @@
+# WIP
+This readme is not completed.
+I'm happy if giving me some advice.
+
 # Executed commands
 
 Install tensorflow with referencing a [readme](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md).
