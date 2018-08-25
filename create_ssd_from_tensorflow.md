@@ -4,6 +4,13 @@ I'm happy if giving me some advice.
 
 # Executed commands
 
+Put this repository in ~/gitprojects/tensorflow
+```
+mkdir -p ~/gitprojects/tensorflow
+cd ~/gitprojects/tensorflow
+git clone git@github.com:asukiaaa/py_opencv_ssd_practice.git
+```
+
 Install tensorflow with referencing a [readme](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md).
 
 ```
@@ -14,7 +21,6 @@ sudo pip3 install tensorflow Cython contextlib2 jupyter matplotlib
 Download data and execute program with referencing a [readme](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/running_pets.md).
 
 ```
-mkdir -p ~/gitprojects/tensorflow
 cd ~/gitprojects/tensorflow
 git clone https://github.com/tensorflow/models.git
 cd models/research
@@ -193,7 +199,7 @@ python3 tf_text_graph_ssd.py \
 
 Use exported data.
 ```
-cd ~/gitprojects/tensorflow/tensorflow-ssd/
+cd ~/gitprojects/tensorflow/py_opencv_ssd_practice/
 OBJECT_DETECTION_DIR=~/gitprojects/tensorflow/models/research/object_detection
 # cp ${OBJECT_DETECTION_DIR}/data/pet_label_map.pbtxt ./
 cp ${OBJECT_DETECTION_DIR}/model_dir/graph.pbtxt ./
