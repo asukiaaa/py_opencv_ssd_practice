@@ -8,3 +8,4 @@ mscoco_label_map.pbtxt
 opt_graph.pb
 pet_label_map.pbtxt
 saved_model.pb
+data/*

@@ -49,7 +49,8 @@ while True:
     # (1, 3, 300, 300)
     # blob = cv2.dnn.blobFromImage(frame_resized, 0.007843, (300, 300), (127.5, 127.5, 127.5), False)
     # blob = cv2.dnn.blobFromImage(frame_resized, 1, (299, 299))
-    blob = cv2.dnn.blobFromImage(frame_resized, 1, (300, 300))
+    # blob = cv2.dnn.blobFromImage(frame_resized, 1, (300, 300))
+    blob = cv2.dnn.blobFromImage(frame_resized, 1.0/127.5, (300, 300), (127.5, 127.5, 127.5), True)
     #Set to network the input blob
     net.setInput(blob)
     #Prediction of network
@@ -85,19 +86,19 @@ while True:
             cv2.rectangle(frame, (xLeftBottom, yLeftBottom), (xRightTop, yRightTop),
                           (0, 255, 0))
 
-            # Draw label and confidence of prediction in frame resized
-            if class_id in classNames:
-                label = classNames[class_id] + ": " + str(confidence)
-                labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)
-
-                yLeftBottom = max(yLeftBottom, labelSize[1])
-                cv2.rectangle(frame, (xLeftBottom, yLeftBottom - labelSize[1]),
-                                     (xLeftBottom + labelSize[0], yLeftBottom + baseLine),
-                                     (255, 255, 255), cv2.FILLED)
-                cv2.putText(frame, label, (xLeftBottom, yLeftBottom),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0))
-
-                print(label) #print class and confidence
+            # # Draw label and confidence of prediction in frame resized
+            # if class_id in classNames:
+            #     label = classNames[class_id] + ": " + str(confidence)
+            #     labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)
+            #
+            #     yLeftBottom = max(yLeftBottom, labelSize[1])
+            #     cv2.rectangle(frame, (xLeftBottom, yLeftBottom - labelSize[1]),
+            #                          (xLeftBottom + labelSize[0], yLeftBottom + baseLine),
+            #                          (255, 255, 255), cv2.FILLED)
+            #     cv2.putText(frame, label, (xLeftBottom, yLeftBottom),
+            #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0))
+            #
+            #     print(label) #print class and confidence
 
     cv2.namedWindow("frame", cv2.WINDOW_NORMAL)
     cv2.imshow("frame", frame)
