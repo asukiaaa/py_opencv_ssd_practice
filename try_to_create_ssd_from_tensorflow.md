@@ -114,12 +114,12 @@ runtime=$((end-start))
 echo $runtime seconds
 ```
 
-
-# Change this line on `research/object_detection/models/embedded_ssd_mobilenet_v1_feature_extractor.py` in model repository.
-# ```
+```
+# WIP
+# # Change this line on `research/object_detection/models/embedded_ssd_mobilenet_v1_feature_extractor.py` in model repository.
 # -          mobilenet_v1.mobilenet_v1_arg_scope(is_training=None)):
 # +          mobilenet_v1.mobilenet_v1_arg_scope(is_training=False)):
-# ```
+```
 
 Export graph. ref: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/exporting_models.md
 
@@ -169,22 +169,22 @@ python3 tf_text_graph_ssd.py \
 #     --output_directory exported_graphs
 ```
 
-# Need optimization?
 ```
-cd ~/gitprojects/tensorflow
-git clone https://github.com/tensorflow/tensorflow.git code
-cd ~/gitprojects/tensorflow/models/research/object_detection/model_dir/exported_graphs
-python3 ~/gitprojects/tensorflow/code/tensorflow/python/tools/optimize_for_inference.py \
-  --input frozen_inference_graph.pb \
-  --output opt_graph.pb \
-  --input_names image_tensor \
-  --output_names "num_detections,detection_scores,detection_boxes,detection_classes" \
-  --placeholder_type_enum 4 \
-  --frozen_graph
+# # Need optimization?
+# cd ~/gitprojects/tensorflow
+# git clone https://github.com/tensorflow/tensorflow.git code
+# cd ~/gitprojects/tensorflow/models/research/object_detection/model_dir/exported_graphs
+# python3 ~/gitprojects/tensorflow/code/tensorflow/python/tools/optimize_for_inference.py \
+#   --input frozen_inference_graph.pb \
+#   --output opt_graph.pb \
+#   --input_names image_tensor \
+#   --output_names "num_detections,detection_scores,detection_boxes,detection_classes" \
+#   --placeholder_type_enum 4 \
+#   --frozen_graph
+# # ref:
+# # http://answers.opencv.org/question/175699/readnetfromtensorflow-fails-on-retrained-nn/
+# # https://github.com/opencv/opencv/wiki/TensorFlow-Object-Detection-API
 ```
-# ref:
-# http://answers.opencv.org/question/175699/readnetfromtensorflow-fails-on-retrained-nn/
-# https://github.com/opencv/opencv/wiki/TensorFlow-Object-Detection-API
 
 
 Use exported data.
